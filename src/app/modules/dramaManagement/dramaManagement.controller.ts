@@ -24,7 +24,7 @@ const getDramaById = catchAsync(async (req, res) => {
 })
 
 const getAllDrama = catchAsync(async (req, res) => {
-    const result = await DramaManagementService.getAllDrama();
+    const result = await DramaManagementService.getAllDrama(req.query);
     sendResponse(res, {
         success: true,
         statusCode: StatusCodes.OK,
