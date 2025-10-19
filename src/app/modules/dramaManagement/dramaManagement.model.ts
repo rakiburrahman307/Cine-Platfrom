@@ -38,6 +38,12 @@ const DramaSchema = new mongoose.Schema<IDrama>({
         type: Number,
         required: false,
     },
+    status: {
+        type: String,
+        enum: ['ongoing', 'completed'],
+        default: 'ongoing',
+        required: false,
+    },
     isDeleted: {
         type: Boolean,
         default: false,

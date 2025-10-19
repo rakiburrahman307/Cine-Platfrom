@@ -9,5 +9,6 @@ export interface IDrama {
     country: string;
     rating: number;
     views: number;
+    status: 'ongoing' | 'completed';
     isDeleted: boolean;
 }
