@@ -28,7 +28,7 @@ const DramaSchema = new mongoose.Schema<IDrama>({
     },
     country: {
         type: String,
-        required: true,
+        required: false,
     },
     rating: {
         type: Number,
@@ -43,3 +43,6 @@ const DramaSchema = new mongoose.Schema<IDrama>({
         default: false,
     },
 });
+
+
+export const DramaModel = mongoose.model<IDrama>('Drama', DramaSchema);
