@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { IDrama } from "./dramaManagement.interface";
 
-const DramaSchema = new mongoose.Schema<IDrama>({
+const dramaSchema = new mongoose.Schema<IDrama>({
     title: {
         type: String,
         required: true,
@@ -50,5 +50,19 @@ const DramaSchema = new mongoose.Schema<IDrama>({
     },
 });
 
+// Query Middleware
+dramaSchema.pre('find', function (next) {
+    this.find({ isDeleted: { $ne: true } });
+    next();
+});
 
-export const DramaModel = mongoose.model<IDrama>('Drama', DramaSchema);
+dramaSchema.pre('findOne', function (next) {
+    this.find({ isDeleted: { $ne: true } });
+    next();
+});
+
+dramaSchema.pre('aggregate', function (next) {
+    this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } });
+    next();
+});
+export const DramaModel = mongoose.model<IDrama>('Drama', dramaSchema);
