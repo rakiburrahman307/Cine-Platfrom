@@ -1,22 +1,11 @@
-import { Request, Response } from 'express';
 import { BannerService } from './banner.service';
 import sendResponse from '../../../shared/sendResponse';
 import { StatusCodes } from 'http-status-codes';
 import catchAsync from '../../../shared/catchAsync';
 
 const createBanner = catchAsync(async (req, res) => {
-     const bannerData = req.body;
-     let image = '';
-     if (req.files && 'image' in req.files && req.files.image[0]) {
-          image = `/images/${req.files.image[0].filename}`;
-     }
 
-     const data = {
-          ...bannerData,
-          image,
-     };
-
-     const result = await BannerService.createBannerToDB(data);
+     const result = await BannerService.createBannerToDB(req.body);
 
      sendResponse(res, {
           statusCode: StatusCodes.OK,
@@ -26,7 +15,7 @@ const createBanner = catchAsync(async (req, res) => {
      });
 });
 
-const getAllBanner = catchAsync(async (req: Request, res: Response) => {
+const getAllBanner = catchAsync(async (req, res) => {
      const result = await BannerService.getAllBannerFromDB();
 
      sendResponse(res, {
@@ -37,19 +26,10 @@ const getAllBanner = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
-const updateBanner = catchAsync(async (req: Request, res: Response) => {
+const updateBanner = catchAsync(async (req, res) => {
      const id = req.params.id;
-     const updateData = req.body;
-     let image;
 
-     if (req.files && 'image' in req.files && req.files.image[0]) {
-          image = `/images/${req.files.image[0].filename}`;
-     }
-     const data = {
-          ...updateData,
-          image,
-     };
-     const result = await BannerService.updateBannerToDB(id, data);
+     const result = await BannerService.updateBannerToDB(id, req.body);
 
      sendResponse(res, {
           statusCode: StatusCodes.OK,
@@ -59,7 +39,7 @@ const updateBanner = catchAsync(async (req: Request, res: Response) => {
      });
 });
 
-const deleteBanner = catchAsync(async (req: Request, res: Response) => {
+const deleteBanner = catchAsync(async (req, res) => {
      const id = req.params.id;
      const result = await BannerService.deleteBannerToDB(id);
 

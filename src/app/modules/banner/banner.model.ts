@@ -7,7 +7,11 @@ const bannerSchema = new Schema<IBanner, BannerModel>(
                type: String,
                required: true,
           },
-          image: {
+          videoUrl: {
+               type: String,
+               required: true,
+          },
+          thumbnailUrl: {
                type: String,
                required: true,
           },
