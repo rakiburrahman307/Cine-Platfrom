@@ -6,14 +6,9 @@
     "auditLog": "R:\\rakib\\practice\\winston\\error\\.c8049ec707be4f8020a4d82b76cd4c7641202963-audit.json",
     "files": [
         {
-            "date": 1760792149950,
-            "name": "R:\\rakib\\practice\\winston\\error\\18-10-2025-18-error.log",
-            "hash": "3539a7102720764cd338ec4445733d4d166a489cb7620e0d09395bcb52f6659d"
-        },
-        {
-            "date": 1760793595037,
-            "name": "R:\\rakib\\practice\\winston\\error\\18-10-2025-19-error.log",
-            "hash": "bebaf1c30bcb91bafd0b53864703baffc025295e0f515ac6030dc56bd278aa18"
+            "date": 1760883649697,
+            "name": "R:\\rakib\\practice\\winston\\error\\19-10-2025-20-error.log",
+            "hash": "d5f43cc589a5a767df19f68b79a87fe3e080a44238ceef43493114c4e1590be8"
         }
     ],
     "hashType": "sha256"

@@ -1,7 +1,7 @@
 export interface IDrama {
     title: string;
     description: string;
-    thumbnailUrl: string;
+    thumbnail: string;
     genre: string[];
     releaseDate: Date;
     duration: number;

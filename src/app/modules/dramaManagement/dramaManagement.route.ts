@@ -21,4 +21,4 @@ router
     .delete(auth(USER_ROLES.SUPER_ADMIN, USER_ROLES.ADMIN), DramaManagementController.deleteDrama);
 
 
-export const DramaRoutes = router
+export const DramaManagementRoutes = router

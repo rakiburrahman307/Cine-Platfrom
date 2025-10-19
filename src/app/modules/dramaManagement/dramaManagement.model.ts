@@ -10,7 +10,7 @@ const dramaSchema = new mongoose.Schema<IDrama>({
         type: String,
         required: true,
     },
-    thumbnailUrl: {
+    thumbnail: {
         type: String,
         required: true,
     },
