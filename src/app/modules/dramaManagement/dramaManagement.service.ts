@@ -32,12 +32,26 @@ const getAllDrama = async (query: Record<string, unknown>) => {
         result,
     }
 }
+const updateDrama = async (id: string, payload: IDrama) => {
+    const result = await DramaModel.findByIdAndUpdate(id, payload, { new: true });
+    if (!result) {
+        throw new AppError(StatusCodes.NOT_FOUND, 'Drama not found');
+    }
+    return result;
+}
 
+const deleteDrama = async (id: string) => {
+    const result = await DramaModel.findByIdAndUpdate(id, { isDeleted: true }, { new: true });
+    if (!result) {
+        throw new AppError(StatusCodes.NOT_FOUND, 'Drama not found');
+    }
+    return result;
+}
 
 export const DramaManagementService = {
     getAllDrama,
     getDramaById,
     createDrama,
-    // updateDrama,
-    // deleteDrama,
+    updateDrama,
+    deleteDrama,
 }

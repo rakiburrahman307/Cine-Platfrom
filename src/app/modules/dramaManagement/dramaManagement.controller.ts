@@ -33,10 +33,29 @@ const getAllDrama = catchAsync(async (req, res) => {
     });
 })
 
+const updateDrama = catchAsync(async (req, res) => {
+    const result = await DramaManagementService.updateDrama(req.params.id, req.body);
+    sendResponse(res, {
+        success: true,
+        statusCode: StatusCodes.OK,
+        message: 'Drama updated successfully',
+        data: result,
+    });
+})
+
+const deleteDrama = catchAsync(async (req, res) => {
+    const result = await DramaManagementService.deleteDrama(req.params.id);
+    sendResponse(res, {
+        success: true,
+        statusCode: StatusCodes.OK,
+        message: 'Drama deleted successfully',
+        data: result,
+    });
+})
 export const DramaManagementController = {
     getAllDrama,
     getDramaById,
     createDrama,
-    // updateDrama,
-    // deleteDrama,
+    updateDrama,
+    deleteDrama,
 }
